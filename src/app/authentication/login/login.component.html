@@ -1,0 +1,33 @@
+<div class="wrapper-login">
+  <div class="text-center mt-auto" *ngIf="isLoading">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <div class="row pt-5" [ngClass]="isLoading ? 'loading': ''">
+    <div class="col-4 mx-auto">
+      <div class="card">
+        <div class="card-header text-center">
+          <h3>Login</h3>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="loginForm" (ngSubmit)="doLogin()">
+            <div class="form-group input-wrap">
+              <input type="text" class="form-control input100" formControlName="email" placeholder="Enter your email">
+              <div class="alert alert-danger" *ngIf="isSubmited && loginForm.get('email').invalid">Please input valid email</div>
+            </div>
+            <div class="form-group input-wrap">
+              <input type="password" class="form-control input100" formControlName="password" placeholder="Enter your password">
+              <span class="alert alert-danger" *ngIf="isSubmited && loginForm.get('password').invalid">Please input your password</span>
+            </div>
+            <button class="btn button100" type="submit" >Login</button>
+              <a href="/register" class="register">Sign Up</a>
+          </form>
+          <div class="alert alert-danger message" *ngIf="message !== ''">
+            {{message}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

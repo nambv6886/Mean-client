@@ -1,0 +1,111 @@
+<div class="wrapper-login">
+  <div class="text-center mt-auto" *ngIf="isLoading">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <div class="row pt-5" [ngClass]="isLoading ? 'loading' : ''">
+    <div class="col-5 mx-auto">
+      <div class="card">
+        <div class="card-header text-center">
+          <h3>Register</h3>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="registerForm" (ngSubmit)="doRegister()">
+            <div class="form-group input-wrap">
+              <label for="" class="form-control-plaintext">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                formControlName="email"
+              />
+              <div
+                class="alert alert-danger"
+                *ngIf="formControl.email.invalid && formControl.email.touched"
+              >
+                <div *ngIf="formControl.email.errors.required">
+                  Email is required.
+                </div>
+                <div
+                  *ngIf="
+                    formControl.email.errors.email ||
+                    formControl.email.errors.forbiddenName
+                  "
+                >
+                  Email is invalid
+                </div>
+              </div>
+            </div>
+            <div class="form-group ">
+              <div class="input-wrap">
+                <label for="" class="form-control-plaintext">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  formControlName="password"
+                />
+                <div
+                  class="alert alert-danger"
+                  *ngIf="
+                    formControl.password.invalid && formControl.password.touched
+                  "
+                >
+                  <div *ngIf="formControl.password.errors.required">
+                    Password is required
+                  </div>
+                  <div *ngIf="formControl.password.errors.minLength">
+                    Password min length is 6
+                  </div>
+                  <div *ngIf="formControl.password.errors.pattern">
+                    Password must contain lowercase, uppercase and digits
+                  </div>
+                </div>
+              </div>
+              <div class="form-group input-wrap">
+                <label for="" class="form-control-plaintext"
+                  >Confirm Password</label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  formControlName="confirmPassword"
+                />
+                <div
+                  class="alert alert-danger"
+                  *ngIf="
+                    formControl.confirmPassword.invalid &&
+                    formControl.confirmPassword.touched
+                  "
+                >
+                  <div *ngIf="formControl.confirmPassword.errors.mustMatch">
+                    Confirm password must match
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary float-right" type="submit">
+                Register
+              </button>
+              <a
+                [routerLink]="['/login']"
+                routerLinkActive="router-link-active"
+                *ngIf="isSuccess"
+                class="float-left"
+                >Back to login</a
+              >
+            </div>
+          </form>
+        </div>
+        <div *ngIf="message !== ''">
+          <div
+            class="message"
+            [ngClass]="isSuccess ? 'alert alert-success' : 'alert alert-danger'"
+          >
+            {{ message }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<div [ngClass]="isCreating ? 'loading' : 'wrapper'">
+  <div class="newHero-form">
+    <h2 style="text-align: center;">Add new hero</h2>
+    <form [formGroup]="heroForm" (submit)="addHero()">
+      <div class="row form-group justify-content-center">
+        <label class="col-sm-1 col-form-label">Name:</label>
+        <input
+          type="text"
+          class="form-control col-sm-4"
+          formControlName="name"
+        />
+      </div>
+      <div class="row form-group justify-content-center">
+        <div class="col">
+          <label for="" class="">Class:</label>
+          <input type="text" class="form-control" formControlName="heroClass" />
+        </div>
+        <div class="col">
+          <label for="" class="">Attack:</label>
+          <input type="text" class="form-control" formControlName="attack" />
+        </div>
+        <div class="col">
+          <label for="" class="">Defense:</label>
+          <input type="text" class="form-control" formControlName="defense" />
+        </div>
+      </div>
+      <div class="row form-group justify-content-start">
+        <div class="col">
+          <input type="file" (change)="onImagePicked($event)"/>
+        </div>
+      </div>
+      <div
+        class="row form-group justify-content-start"
+        *ngIf="imagePreview && imagePreview !== ''"
+      >
+        <div class="col">
+          <img
+            [src]="imagePreview"
+            alt="Image Preview"
+            width="160px"
+            height="180px"
+          />
+        </div>
+      </div>
+      <button class="form-control btn btn-success col-sm-2" type="submit">
+        Add
+      </button>
+      <div class="err" hidden="heroForm.invalid && heroForm.get('name').invalid">Please fill all the fields</div>
+    </form>
+  </div>
+  <div class="container" *ngIf="heroes.length > 0">
+    <div class="row">
+      <div class="col-md-5">
+        <app-hero-list
+          [heroes]="heroes"
+          [selectedHero]="selected"
+          (selectedHeroToParent)="onSelectedHero($event)"
+        ></app-hero-list>
+      </div>
+      <div class="col-md-7">
+        <app-hero-detail
+          *ngIf="!isLoading"
+          [hero]="selected"
+          (deleteHero)="onDeleteHero($event)"
+        ></app-hero-detail>
+        <div class="spinner-border spin" role="status" *ngIf="isLoading">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+    <button (click)="goBack()" class="btn btn-primary">Back</button>
+  </div>
+  <div *ngIf="heroes.length == 0">
+    <div class="newHero-form">You don't have any records</div>
+  </div>
+</div>

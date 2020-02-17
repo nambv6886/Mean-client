@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: gray;
+}
+
+@font-face {
+  font-family: Poppins-Regular;
+  src: url('./assets/font/Poppins-Regular.ttf');
+}
+@font-face {
+  font-family: Poppins-Medium;
+  src: url('./assets/font/Poppins-Medium.ttf');
+}
+
+input {
+  border: none !important;
+  outline: none !important;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.wrapper-login {
+  background: linear-gradient(to right, #34ebdb, #eb34a5);
+  background-size: cover;
+  overflow: hidden;
+  min-height: 100vh;
+}
+.input-wrap {
+  border-bottom: 2px solid #d9d9d9;
+}

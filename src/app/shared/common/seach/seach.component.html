@@ -1,0 +1,33 @@
+<div class="">
+  <form
+    (ngSubmit)="onSubmit()"
+    [formGroup]="searchForm"
+    class="form-inline my-3 dropdown"
+  >
+    <input
+      type="text"
+      formControlName="name"
+      placeholder="Search for hero name"
+      id="search"
+      class="form-control"
+      #searchBox
+      data-toggle="dropdown"
+      (input)="search(searchBox.value)"
+      autocomplete="off"
+      aria-expanded="false"
+    />
+  <div class="dropdown-menu" aria-labelledby="search" [hidden]="heroes.length==0">
+    <a *ngFor="let hero of heroes" href="" class="dropdown-item" role="presentation">{{hero.name}}</a>
+    </div>
+    <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+  </form>
+  <!-- <ul *ngIf="heroes$ | async">
+        <li *ngFor="let hero of heroes$ | async">
+          <a routerLink='/routePath'>{{hero.name}}</a>
+        </li>
+      </ul> -->
+  <!--
+      <select *ngIf="heroes$ | async">
+        <option *ngFor="let hero of heroes$ | async">{{hero.name}}</option>
+      </select> -->
+</div>

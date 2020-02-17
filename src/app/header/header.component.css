@@ -1,0 +1,13 @@
+/* nav .navbar-nav .nav-link,
+nav .navbar-brand {
+   color: #ffffff;
+} */
+
+.header {
+  background-color: #00001a;
+  /* color: white; */
+}
+
+.header a {
+  color: white;
+}

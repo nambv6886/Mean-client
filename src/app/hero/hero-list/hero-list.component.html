@@ -1,0 +1,5 @@
+<ul class="list-group setcolor" *ngIf="heroes && selectedHero">
+  <li *ngFor="let hero of heroes" (click)="onSelect(hero)" class="item">
+    <a class="list-group-item list-group-item-action" [ngClass]="hero.id==selectedHero.id ? 'selected': 'normal'">{{hero.name}}</a>
+  </li>
+</ul>

@@ -1,0 +1,39 @@
+html {
+  height: 100%;
+}
+
+body {
+  font-family: Poppins-Regular, sans-serif;
+}
+
+.wrapper {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.main {
+  display: flex;
+  min-height: 65vh;
+  /* flex-flow: row wrap; */
+  /* flex: 0 1 auto; */
+}
+
+.navigation {
+  width: 20vw;
+  order: 1;
+  background-color: #1d1919;
+  ;
+}
+
+.content {
+  order: 2;
+  width: 80vw;
+}
+
+.header {
+  /* background-color: #ffe066; */
+}
+
+a:hover {
+  text-decoration: none;
+}

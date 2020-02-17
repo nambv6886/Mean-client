@@ -1,0 +1,26 @@
+<div *ngIf="isLoading" class="spinner-border spin" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<div *ngIf="!isLoading">
+  <div *ngIf="heroes.length > 0">
+    <div class="wrapper">
+      <div class="hero-card" *ngFor="let hero of heroes">
+        <div class="hero-card__side hero-card__side--front">
+          <img [src]="hero.imagePath" alt="Cannot get image from heroku so this is the temporary solution. Hover to see more!" height="180px" width="160px">
+        </div>
+        <div class="hero-card__side hero-card__side--back">
+          <div class="hero-list">
+            <div class="hero-id">ID: {{hero.id}}</div>
+            <div class="hero-name">Name: {{hero.name}}</div>
+            <div class="hero-class">Class: {{hero.heroClass}}</div>
+            <div class="hero-attack">Attack: {{hero.attack}}</div>
+            <div class="hero-defense">Defense: {{hero.defense}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!heroes.length">
+    <div class="newHero-form">You don't have any records</div>
+  </div>
+</div>

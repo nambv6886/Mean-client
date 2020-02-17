@@ -1,0 +1,18 @@
+.selected {
+  background-color: lightgreen;
+}
+.setcolor li a {
+  color: gray;
+}
+.setcolor {
+  list-style: none;
+}
+.normal {
+  background-color: green;
+}
+.item {
+  cursor: pointer;
+}
+.item:hover {
+  background-color: greenyellow;
+}

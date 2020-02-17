@@ -1,0 +1,50 @@
+.wrapper {
+  font-size: 16px;
+  font-weight: 400;
+  display: block;
+  padding: 15px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.wrapper ul li a {
+  border-bottom: 1px solid rgba(255, 255,255, 0.1);
+  padding: 10px 0;
+  display: block;
+  color: gray;
+}
+
+.wrapper ul li a:hover {
+  color: #f8b739;
+}
+
+a {
+  text-decoration: none;
+}
+
+a[data-toggle="collapse"] {
+  position: relative;
+}
+
+.dropdown-toggle::after {
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+
+.image-logo {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  display: block;
+  background-image: url("public/img/superman.PNG");
+}
+
+.image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}

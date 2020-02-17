@@ -1,0 +1,40 @@
+.message {
+  margin-top: 15px;
+}
+.loading {
+  opacity: 0.5;
+  z-index: -1;
+}
+
+
+.input100 {
+  font-size: 16px;
+  font-family: Poppins-Medium;
+}
+.input100::placeholder {
+  color: #d9d9d9;
+}
+.button100 {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-family: Poppins-Medium;
+  width:100%;
+  border-radius: 20px;
+  background: linear-gradient(to right, #34ebdb, #eb34a5);
+  background: -webkit-linear-gradient(to right, #34ebdb, #eb34a5);
+  color: white;
+  margin-top: 30px;
+  border: none;
+  outline: none
+}
+.register {
+  color: gray;
+  margin: 0 auto;
+  padding: 30px;
+  display: table;
+}
+
+.error {
+  color: red;
+  font-family: Poppins-Regular;
+}
